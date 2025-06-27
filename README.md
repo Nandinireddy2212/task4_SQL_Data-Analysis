@@ -34,63 +34,74 @@ The dataset contains metadata about Netflix titles with the following fields:
 
 ## SQL Query Descriptions 
 
-1. **Movies after 2020**  
-   Retrieves titles of all movies released after the year 2020.
+1. **Movies Released in or After 2020**  
+   Shows all movies with a release year of 2020 or later, ordered from newest to oldest.
 
 2. **Top 10 Recently Added Titles**  
-   Lists the most recently added titles to the Netflix catalog.
+   Retrieves the 10 latest titles based on the date they were added to Netflix.
 
-3. **Count of Movies and TV Shows**  
-   Counts how many titles are movies vs. TV shows.
+3. **Titles Containing the Word 'Love'**  
+   Searches for titles that include the word "Love" in their name.
 
-4. **Titles Released Per Year**  
-   Shows how many titles were released each year, useful for trend analysis.
+4. **Count by Content Type**  
+   Counts the total number of entries grouped by whether they are Movies or TV Shows.
 
-5. **Average IMDb Score by Year**  
-   Calculates the average IMDb rating for each release year.
+5. **Titles Released Each Year**  
+   Displays how many titles were released in each year, ordered by year.
 
-6. **Titles After Average Release Year**  
-   Filters titles released after the dataset's average year.
+6. **Most Common Ratings**  
+   Lists content ratings (e.g., PG, TV-MA) in order of frequency.
 
-7. **Top Countries by Content Count**  
-   Lists the countries with the highest number of Netflix titles.
+7. **Average Release Year per Type**  
+   Shows the average release year for Movies and TV Shows separately.
 
-8. **Titles with Multiple Genres**  
-   Identifies titles that belong to more than one genre category.
+8. **Titles Released After Average Year**  
+   Filters titles that were released later than the dataset’s overall average year.
 
-9. **View: Indian Movies After 2010**  
-   Saves a filtered list of Indian movies released after 2010 as a reusable view.
+9. **Countries with More than Average Titles**  
+   Finds countries whose number of titles is above the average across all countries.
 
-10. **View: Long-Running TV Shows**  
-    Creates a view of TV Shows with more than 2 seasons.
+10. **Indian Movies After 2010 (View)**  
+    Creates a view to display Indian movies released after 2010.
 
-11. **Use View for Newer Indian Movies**  
-    Retrieves recent Indian movies using the created view.
+11. **Indian PG-13 Movies from View**  
+    Filters the view to display only movies rated PG-13.
 
-12. **Titles with Most Frequent Rating**  
-    Finds titles that have the most commonly used content rating.
+12. **Long TV Shows (More Than 2 Seasons)**  
+    Creates a view for TV shows with over 2 seasons based on duration string.
 
-13. **Titles Tagged as Both Comedy and Drama**  
-    Displays titles that are classified under both ‘Comedies’ and ‘Dramas’.
+13. **Top 5 Long TV Shows**  
+    Selects the first five entries from the view of long TV shows.
 
-14. **Genre Count per Title**  
-    Shows how many genres each title is associated with.
+14. **Create Indexes**  
+    Adds indexes on type, release year, and rating columns to speed up filtering.
 
-15. **Movies Longer Than 120 Minutes**  
-    Filters out all movies that are over 2 hours in runtime.
+15. **Show Indexes and Explain Query**  
+    Displays created indexes and explains how MySQL plans to run a query.
 
-16. **Titles Without Director Info**  
-    Identifies content that has missing or unknown director fields.
+16. **Genres Table Creation**  
+    Creates a new table `genres` to split and store multiple genres per title.
 
-17. **Titles Added per Month**  
-    Displays how many titles were added in each calendar month.
+17. **Inner Join on Netflix and Genres**  
+    Joins `netflix` and `genres` tables to find titles tagged as 'Comedies'.
 
-18. **Count by Rating**  
-    Counts how many titles fall under each rating (e.g., TV-MA, PG).
+18. **Left Join for All Titles with Genres**  
+    Shows all titles including those without a genre using a LEFT JOIN.
 
-19. **Create Indexes**  
-    Adds indexes on key columns to speed up filtering and searching.
+19. **Movies Longer Than 120 Minutes**  
+    Filters out movies with a runtime greater than 2 hours.
 
-20. **Analyze Query with EXPLAIN**  
-    Shows the execution plan and performance impact of a query.
+20. **Titles Without Director Info**  
+    Finds shows or movies with no director listed (NULL or empty).
 
+21. **Titles Added Per Month**  
+    Groups the number of titles added to Netflix by calendar month.
+
+22. **Top 5 Countries with Most TV Shows**  
+    Lists the countries with the highest count of TV Shows.
+
+23. **Movies Released Same Year as “Inception”**  
+    Shows all titles released in the same year as "Inception".
+
+24. **Titles with Most Frequent Rating**  
+    Retrieves all titles that have the most commonly used rating.
